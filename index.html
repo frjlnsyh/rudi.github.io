@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luvvv ❤️</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+
+        /* --- EFEK BACKGROUND LATAR BELAKANG MERIAH (FLOATING HEARTS) --- */
+        .bg-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-hearts span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.45);
+            bottom: -40px;
+            animation: animateHearts 6s linear infinite;
+            transform: rotate(45deg);
+        }
+
+        .bg-hearts span::before,
+        .bg-hearts span::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .bg-hearts span::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .bg-hearts span::after {
+            top: 0;
+            left: -10px;
+        }
+
+        /* Posisi dan kecepatan animasi hati di background */
+        .bg-hearts span:nth-child(1) { left: 10%; animation-duration: 5s; width: 14px; height: 14px; }
+        .bg-hearts span:nth-child(1)::before, .bg-hearts span:nth-child(1)::after { width: 14px; height: 14px; top: -7px; left: -7px; }
+        
+        .bg-hearts span:nth-child(2) { left: 25%; animation-duration: 7s; animation-delay: 1s; }
+        
+        .bg-hearts span:nth-child(3) { left: 45%; animation-duration: 4.5s; animation-delay: 2s; width: 12px; height: 12px; }
+        .bg-hearts span:nth-child(3)::before, .bg-hearts span:nth-child(3)::after { width: 12px; height: 12px; top: -6px; left: -6px; }
+
+        .bg-hearts span:nth-child(4) { left: 70%; animation-duration: 8s; animation-delay: 0.5s; width: 22px; height: 22px; }
+        .bg-hearts span:nth-child(4)::before, .bg-hearts span:nth-child(4)::after { width: 22px; height: 22px; top: -11px; left: -11px; }
+
+        .bg-hearts span:nth-child(5) { left: 88%; animation-duration: 6s; animation-delay: 3s; }
+
+        @keyframes animateHearts {
+            0% {
+                transform: translateY(0) rotate(45deg) scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.85;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(45deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* --- KOTAK UTAMA (CONTAINER KARTU) --- */
+        .card-container {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            padding: 2.5rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(214, 51, 132, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.8rem;
+            text-align: center;
+        }
+
+        /* Pengaturan Gambar GIF */
+        img {
+            mix-blend-mode: multiply;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
+        }
+
+        /* Baris Teks Tengah & Kelinci Utama */
+        .center-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            width: 100%;
+        }
+
+        .gif_animation img {
+            width: clamp(75px, 14vw, 120px);
+            animation: floatGif 2.5s ease-in-out infinite;
+        }
+
+        @keyframes floatGif {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Styling Teks Utama */
+        h1 {
+            font-size: clamp(2.3rem, 6vw, 4rem);
+            color: #d63384;
+            text-shadow: 2px 2px 6px rgba(214, 51, 132, 0.15);
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+
+        /* Baris Hiasan GIF di Atas & Bawah */
+        .parent_1, .parent_2 {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gif-only img {
+            width: clamp(45px, 7vw, 65px);
+            transition: transform 0.3s ease;
+        }
+
+        .gif-only img:hover {
+            transform: scale(1.2);
+        }
+
+        /* --- RESPONSIF UNTUK HP (MOBILE) --- */
+        @media (max-width: 768px) {
+            .card-container {
+                padding: 1.5rem 1rem;
+                gap: 1.2rem;
+                width: 92%;
+                border-radius: 20px;
+            }
+
+            .center-row {
+                gap: 0.8rem;
+            }
+
+            /* Di HP, batasi jumlah GIF hiasan pinggir agar tetap rapi & tidak sesak */
+            .parent_1 .gif-only:nth-child(n+3), 
+            .parent_2 .gif-only:nth-child(n+3) {
+                display: none; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Efek Latar Belakang Kelap-Kelip Hati -->
+    <div class="bg-hearts">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Kotak Utama Konten -->
+    <div class="card-container">
+
+        <!-- Baris GIF Hiasan Atas -->
+        <div class="parent_1">
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+        </div>
+        
+        <!-- Baris Utama (Kelinci - Teks I Love U - Kelinci) -->
+        <div class="center-row">
+            <div class="gif_animation">
+                <img src="./love-heart.gif" alt="love heart">
+            </div>
+
+            <h1>I Love U</h1>
+
+            <div class="gif_animation">
+                <img src="./love-heart.gif" alt="love heart">
+            </div>
+        </div>
+
+        <!-- Baris GIF Hiasan Bawah -->
+        <div class="parent_2">
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+            <div class="gif-only"><img src="./sending-love.gif" alt="sending love"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
